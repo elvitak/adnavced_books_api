@@ -15,7 +15,7 @@ afterEach(async () => {
 });
 
 describe("Example of a request spec", () => {
-  describe.only("GET /api/resource", () => {
+  describe("GET /api/resource", () => {
     beforeEach(async () => {
       response = await request.get("/api/resource");
     });
