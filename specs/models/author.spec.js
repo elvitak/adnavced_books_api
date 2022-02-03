@@ -27,8 +27,7 @@ describe("Author", () => {
       it("Book:HasMany", () => {
         expect(associations)
           .to.have.own.property("Books")
-          .to.be.instanceOf(Association.HasMany)
-          .that.has.property("foreignKey", "<field>");
+          .to.be.instanceOf(Association.HasMany);
       });
     });
   });
@@ -49,8 +48,8 @@ describe("Author", () => {
     describe("is expected to have association accessors", () => {
       it("for the Book association", () => {
         expect(subject)
-          .to.respondTo("getBook")
-          .and.respondTo("setBook")
+          .to.respondTo("getBooks")
+          .and.respondTo("setBooks")
           .and.respondTo("createBook");
       });
     });
