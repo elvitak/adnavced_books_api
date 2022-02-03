@@ -1,4 +1,4 @@
-const { expect, factory, pending } = require("../helpers");
+const { expect, factory, pending, Models } = require("../helpers");
 const { Association, DataTypes } = require("sequelize");
 const { Author } = Models;
 
@@ -11,7 +11,7 @@ describe("Author", () => {
 
   describe("Model", () => {
     it('is expected to have table name "Author"', () => {
-      expect(tableName).to.equal("Author");
+      expect(tableName).to.equal("Authors");
     });
 
     describe("is expected to have property:", () => {
