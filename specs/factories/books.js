@@ -3,5 +3,6 @@ module.exports = (factory, Models) => {
     title: "My awesome book",
     createdAt: new Date(),
     updatedAt: new Date(),
+    AuthorId: factory.assoc("Author", { name: "Anna" }),
   });
 };

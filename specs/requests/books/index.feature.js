@@ -12,8 +12,9 @@ describe("GET /api/books", () => {
   });
   beforeEach(async () => {
     // create your factories here
+    const author = await factory.create("Author");
     books = await factory.createMany("Book", 5, [
-      { title: "The bible", author: "Me" },
+      { title: "The bible", AuthorId: author.id },
     ]);
     response = await request.get("/api/books");
   });
@@ -31,8 +32,15 @@ describe("GET /api/books", () => {
       const expectedJson = {
         id: books[0].id,
         title: "The bible",
+        author: {
+          name: "Elvita",
+        },
       };
       expect(response.body["books"][0]).to.deep.equal(expectedJson);
+    });
+
+    it("is expected to contain author", () => {
+      expect(response.body["books"][0]).to.have.own.property("author");
     });
   });
 });
